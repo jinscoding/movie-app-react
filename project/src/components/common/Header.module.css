@@ -2,9 +2,9 @@
     display: flex;
     justify-content: center; 
     align-items: center;  
-    height: 10; 
+    height: 100; 
 }
 .webLogo {
     position: relative;
-    max-width: 300px;
+    max-width: 250px;
 }
