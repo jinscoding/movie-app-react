@@ -1,15 +1,7 @@
-// 2024 - 06 -05
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { DetailProps } from "../types";
 
-
-interface DetailProps {
-    medium_cover_image: string;
-    title: string;
-    // summary: string;
-    // genres: string[];
-    // description_intro: string;
-}
 
 function Detail() {
     const { id } = useParams();
@@ -18,6 +10,8 @@ function Detail() {
     const [movie, setMovie] = useState<DetailProps>({
         medium_cover_image: "",
         title: "",
+        summary: "",
+        genres: [],
     });
     const getMovie = async () => {
         const json = await (

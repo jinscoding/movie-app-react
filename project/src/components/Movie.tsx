@@ -1,5 +1,3 @@
-// 2024 - 06 -05
-import React from "react";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -18,7 +16,7 @@ export function Movie({id, coverImg, title, summary, genres} : Props){
                 <h2>
                     <Link to={`/movie/${id}`}>{title}</Link>
                 </h2>
-                <p>{summary}</p>
+                <p>{summary.length > 235 ? `${summary.slice(0, 235)}...`: summary}</p>
                 <p>genres</p>
                 <ul>
                     {genres.map((g) => (

@@ -1,19 +1,10 @@
-// 2024 - 06 -05
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Movie } from "../components/Movie";
-
-
-interface Props {
-    id: number;
-    medium_cover_image: string;
-    title: string;
-    summary: string;
-    genres: string[];
-}
+import { MovieProps } from "../types";
 
 function Home() {
     const [loading, setLoading] = useState<boolean>(true);
-    const [movies, setMovies] = useState<Props[]>([]);
+    const [movies, setMovies] = useState<MovieProps[]>([]);
     const getMovies = async () => {
         const json = await (
         await fetch(
