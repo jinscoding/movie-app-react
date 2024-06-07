@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-
+import React from "react";
+import styles from "./Movie.module.css";
 interface Props {
     id: number;
     coverImg: string;
@@ -11,14 +12,13 @@ interface Props {
 export function Movie({id, coverImg, title, summary, genres} : Props){
     return (
         <>
-            <div>
-                <img src={coverImg}  alt={title}/>
-                <h2>
+            <div className={styles.movie}>
+                <img src={coverImg}  alt={title} className={styles.movieImg}/>
+                <h2 className = {styles.movieTitle}>
                     <Link to={`/movie/${id}`}>{title}</Link>
                 </h2>
                 <p>{summary.length > 235 ? `${summary.slice(0, 235)}...`: summary}</p>
-                <p>genres</p>
-                <ul>
+                <ul className={styles.movieGenres}>
                     {genres.map((g) => (
                         <li key={g}>{g}</li>
                     ))}

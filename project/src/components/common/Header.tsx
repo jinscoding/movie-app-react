@@ -1,12 +1,12 @@
-//import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo.png"
+import styles from "./Header.module.css"
 
 function Header() {
     return (
         <header>
-            <h1 className="logo">
-                Movie Movie
-                {/* <img src={logo} alt="book store" /> */}
-            </h1>
+            <div className={styles.container}>
+                <img src={logo} alt="book store" className = {styles.webLogo} />
+            </div>
         </header>
     );
 }
