@@ -1,32 +1,33 @@
-import {createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
 import Layout from "./components/Layout";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
     {
-        path: "/",
-        element: (
-            <Layout>
-                <Home />
-            </Layout>
-        )
+      path: "/",
+      element: (
+        <Layout>
+          <Home />
+        </Layout>
+      ),
     },
     {
-        path: "/movie/:id",
-        element: (
-            <Layout>
-                <Detail/>
-            </Layout>
-        )
-    } 
-], {
-    basename: process.env.PUBLIC_URL
-})
+      path: "/movie/:id",
+      element: (
+        <Layout>
+          <Detail />
+        </Layout>
+      ),
+    },
+  ],
+  {
+    basename: process.env.PUBLIC_URL,
+  }
+);
 function App() {
-    return (
-        <RouterProvider router={router}/>
-    );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

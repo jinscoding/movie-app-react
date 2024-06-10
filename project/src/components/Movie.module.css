@@ -1,53 +1,33 @@
 .movie {
-    background-color: white;
-    margin-bottom: 70px;
-    font-weight: 300;
-    padding: 20px;
-    border-radius: 5px;
-    color: #adaeb9;
-    display: grid;
-    grid-template-columns: minmax(150px, 1fr) 2fr;
-    grid-gap: 20px;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-      0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
-  }
-  
-  .movieImg {
-    position: relative;
-    top: -50px;
-    max-width: 150px;
-    width: 100%;
-    margin-right: 30px;
-    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
-      0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
-  }
+  position: relative;
+  display: inline-block;
+}
 
-  .movie__year {
-    margin: 0;
-    font-weight: 300;
-    text-decoration: none;
-  }
-  
-  .movieTitle {
-    margin-bottom: 5px;
-    font-size: 30px;
-    color: #2c2c2c;
-    text-decoration: none;
-  }
-  
-  .movieGenres {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 5px 0px;
-  }
-  
-  .movieGenres li,
-  .movie__year {
-    margin-right: 10px;
-    font-size: 14px;
-  }
+.movieImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s;
+}
+
+.movie:hover .movieImg {
+  opacity: 0.3;
+}
+
+.rating {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.movie:hover .rating {
+  opacity: 1;
+}
