@@ -7,6 +7,6 @@ export interface MovieProps {
 
 export interface DetailProps extends MovieProps {
   year: number;
-  summary: string;
+  description_intro: string;
   genres: string[];
 }

@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
 import Layout from "./components/Layout";
+import { useState } from "react";
 
 const router = createBrowserRouter(
   [
