@@ -4,8 +4,10 @@ import { DetailProps } from "../models/movie.model";
 import LoadingScreen from "../components/LoadingScreen";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
-  background-color: black;
+const Wrapper = styled.div<{ backgroundImage: string }>`
+  background-image: url(${(props) => props.backgroundImage});
+  background-size: cover;
+  background-position: center;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -14,15 +16,27 @@ const Wrapper = styled.div`
   padding: 20px;
 `;
 
+const Background = styled.div`
+  position: absolute;
+  top: 10;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* 어두운 배경색 설정 */
+  filter: blur(5px); /* 배경 이미지에 흐림 효과 */
+`;
+
 const Poster = styled.img`
   margin-right: 20px;
   width: 300px;
   height: auto;
+  z-index: 1; /* 포스터 이미지를 앞으로 가져옴 */
 `;
 
 const MovieInfo = styled.div`
   max-width: 600px;
   text-align: left;
+  z-index: 1; /* 영화 정보를 앞으로 가져옴 */
 `;
 
 const TitleWrapper = styled.div`
@@ -65,14 +79,15 @@ function Detail() {
 
   useEffect(() => {
     getMovie();
-  }, []);
+  }, [id]);
 
   return (
     <>
       {loading ? (
         <LoadingScreen />
       ) : (
-        <Wrapper>
+        <Wrapper backgroundImage={movie.medium_cover_image}>
+          <Background />
           <Poster src={movie.medium_cover_image} alt={movie.title} />
           <MovieInfo>
             <TitleWrapper>
@@ -82,7 +97,7 @@ function Detail() {
             <div>
               <p>{movie.genres.join(", ")}</p>
               <p>Rating: {movie.rating}</p>
-              <p>Summary: {movie.description_intro}</p>
+              <p>{movie.description_intro}</p>
             </div>
           </MovieInfo>
         </Wrapper>
